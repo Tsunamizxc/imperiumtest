@@ -573,4 +573,187 @@ html {
   height: 100%;
   background-color: #052e4c;
 }
+
+.product {
+  padding: 13rem 0;
+}
+.product__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 2.2rem;
+}
+.product__header_title {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #052E4C;
+  text-transform: uppercase;
+}
+.product__swiper {
+  overflow: hidden;
+}
+.product__swiper_slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.product__swiper_item {
+  width: 25.6rem;
+  padding: 1.6rem;
+}
+.product__swiper_item:hover {
+  background-color: rgba(227, 246, 245, 0.3411764706);
+}
+.product__item_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.product__item_img {
+  position: relative;
+  margin-bottom: 2.4rem;
+}
+.product__item_text {
+  max-width: 20.7rem;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #052e4c;
+  height: 6.3rem;
+}
+.product__item_prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+.product__item_btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.6rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.product__img_icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.product__icons_left {
+  position: absolute;
+}
+.product__icons_sale {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #b84c74;
+}
+.product__prices_price {
+  position: relative;
+  font-family: "Cormorant", serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #052e4c;
+}
+.product__prices_price span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2rem;
+}
+.product__prices_price-sale {
+  position: relative;
+  font-family: "Cormorant", serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(5, 46, 76, 0.2470588235);
+  text-transform: uppercase;
+}
+.product__prices_price-sale::after {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  display: block;
+  width: 6.7rem;
+  height: 0.2rem;
+  background: #b84c74;
+  rotate: -29deg;
+}
+.product__btns_sale {
+  display: inline-block;
+  color: #052e4c;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3rem;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1.1rem 2.1rem;
+  border: 0.1rem solid #052e4c;
+}
+.product__btns_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 0.6rem;
+  position: relative;
+  width: 10rem;
+}
 /*# sourceMappingURL=main.css.map */

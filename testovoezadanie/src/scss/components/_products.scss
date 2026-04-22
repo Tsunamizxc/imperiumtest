@@ -1,0 +1,206 @@
+.product {
+    // .product__header
+    padding: rem(130) 0;
+    &__header {
+        // .product__header_title
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: rem(22);
+
+        &_title {
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-size: rem(20);
+            line-height: 100%;
+            letter-spacing: 0%;
+            color:#052E4C;
+            text-transform: uppercase;
+        }
+    }
+
+    // .product__swiper
+
+    &__swiper {
+        overflow: hidden;
+        // .product__swiper_item
+        &_slide {
+            display: flex;
+            justify-content: space-between;
+        }
+        &_item {
+            width: rem(256);
+            padding: rem(16);
+            &:hover {
+                background-color: #e3f6f557;
+            }
+        }
+    }
+
+    // .product__item
+
+    &__item {
+        // .product__item_img
+
+        &_content {
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+        }
+        &_img {
+            position: relative;
+            margin-bottom: rem(24);
+        }
+
+        // .product__item_text
+
+        &_text {
+            max-width: rem(207);
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-size: rem(16);
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #052e4c;
+
+            height: rem(63);
+        }
+
+        // .product__item_prices
+
+        &_prices {
+            display: flex;
+            align-items: center;
+            gap: rem(16);
+        }
+
+        // .product__item_btns
+
+        &_btns {
+            display: flex;
+            gap: rem(16);
+            align-items: center;
+        }
+    }
+
+    // .product__img
+
+    &__img {
+        // .product__img_icons
+
+        &_icons {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    // .product__icons
+
+    &__icons {
+        // .product__icons_left
+
+        &_left {
+            position: absolute;
+        }
+
+        // .product__icons_sale
+
+        &_sale {
+            width: rem(50);
+            height: rem(50);
+            border-radius: 50%;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: rem(14);
+            right: rem(16);
+            justify-content: center;
+            font-family: "Cormorant", serif;
+            font-weight: 700;
+            font-size: rem(20);
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #b84c74;
+        }
+    }
+
+    // .product__prices
+
+    &__prices {
+        // .product__prices_price
+
+        &_price {
+            position: relative;
+            font-family: "Cormorant", serif;
+            font-weight: 700;
+            font-size: rem(32);
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #052e4c;
+            span {
+                font-style: italic;
+                font-weight: 400;
+                font-size: rem(20);
+            }
+        }
+
+        // .product__prices_price-sale
+
+        &_price-sale {
+            position: relative;
+            font-family: "Cormorant", serif;
+            font-weight: 400;
+            font-size: rem(32);
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #052e4c3f;
+            text-transform: uppercase;
+            &::after {
+                content: "";
+                position: absolute;
+                top: rem(15);
+                display: block;
+                width: rem(67);
+                height: rem(2);
+                background: #b84c74;
+                rotate: -29deg;
+            }
+        }
+    }
+
+    // .product__btns
+
+    &__btns {
+        // .product__btns_sale
+
+        &_sale {
+            display: inline-block;
+            color: #052e4c;
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: rem(13);
+            line-height: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            padding: rem(11) rem(21);
+            border: rem(1) solid #052e4c;
+        }
+        &_row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: rem(6);
+            position: relative;
+            width: rem(100);
+        }
+        // .product__btns_basket
+
+        &_basket {
+        }
+    }
+}
+.container {
+}

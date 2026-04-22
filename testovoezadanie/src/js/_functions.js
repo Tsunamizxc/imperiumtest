@@ -12,8 +12,7 @@
 // const modal = new GraphModal();
 
 // Подключение свайпера
-import Swiper, { Navigation, Pagination } from 'swiper';
-Swiper.use([Navigation, Pagination]);
+import Swiper from "swiper/bundle";
 const swiper = new Swiper('.swiper', {
   // Optional parameters
 direction: 'horizontal',
@@ -36,6 +35,44 @@ direction: 'horizontal',
         el: '.swiper-scrollbar',
     },
 })
+const swiperProd = new Swiper('.product__swiper', {
+  // Optional parameters
+direction: 'horizontal',
+slidesPerView:'auto',
+    loop: true,
+spaceBetween:32,
+    // Пагинация в виде "1/3"
+    pagination: {
+        el: '.product__btns_row .swiper-pagination',
+        type: 'fraction',     // <-- Ключевой параметр для цифр
+    },
+
+    // Навигация
+    navigation: {
+        nextEl: '.product__btns_row .swiper-button-next',
+        prevEl: '.product__btns_row .swiper-button-prev',
+    },
+
+})
+const swiperProdImg = new Swiper(".mySwiper", {
+      loop: true,
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    
+    const swiperProdImg2 = new Swiper(".mySwiper2", {
+      loop: true,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiperProdImg,
+      },
+    });
 
 // Подключение плавной прокрутки к якорям
 // import SmoothScroll from 'smooth-scroll';
