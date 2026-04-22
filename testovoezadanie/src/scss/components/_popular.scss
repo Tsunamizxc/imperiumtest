@@ -5,7 +5,7 @@
 
     &__title {
         position: absolute;
-        z-index: 1001;
+        z-index: 2;
         opacity: 0.05;
         font-family: "Cormorant Infant", serif;
         font-style: italic;
@@ -21,12 +21,11 @@
 .grid-main {
     display: grid;
     position: relative;
-    z-index: 2000;
+    z-index: 3;
     grid-template-columns: 2fr 1fr;
     align-items: stretch;
 }
 
-/* Верхняя большая картинка + под ней две маленькие картинки в ряд */
 .left-stack {
     display: flex;
     flex-direction: column;
@@ -56,7 +55,6 @@
     }
 }
 
-/* Большая картинка (верхняя) */
 .img-large {
     position: relative;
     width: 100%;
@@ -68,7 +66,7 @@
         cursor: pointer;
         &::after {
             position: absolute;
-            z-index: 4000;
+            z-index: 4;
             width: 100%;
             height: rem(12);
             background-color: #417a82;
@@ -86,13 +84,11 @@
     }
 }
 
-/* Ряд с двумя маленькими картинками */
 .two-small {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-/* Стили для маленьких карточек */
 .small-card {
     position: relative;
     transition: all 0.25s;
@@ -104,7 +100,7 @@
             cursor: pointer;
         &::after {
             position: absolute;
-            z-index: 4000;
+            z-index: 4;
             width: 100%;
             height: rem(12);
             background-color: #417a82;
@@ -121,7 +117,6 @@
     }
 }
 
-/* ПРАВАЯ СЕКЦИЯ — самая большая картинка */
 .right-tall {
     width: rem(504);
     height: 100%;
@@ -137,7 +132,7 @@
             cursor: pointer;
         &::after {
             position: absolute;
-            z-index: 4000;
+            z-index: 4;
             width: 100%;
             height: rem(12);
             background-color: #417a82;
@@ -156,7 +151,7 @@
 
 .blue-block {
     position: absolute;
-    z-index: 1000;
+    z-index: 1;
     top: 0;
     right: 0;
     width: rem(160);

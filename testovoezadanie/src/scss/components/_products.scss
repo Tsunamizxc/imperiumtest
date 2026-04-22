@@ -14,7 +14,7 @@
             font-size: rem(20);
             line-height: 100%;
             letter-spacing: 0%;
-            color:#052E4C;
+            color: #052e4c;
             text-transform: uppercase;
         }
     }
@@ -87,7 +87,21 @@
 
     &__img {
         // .product__img_icons
-
+        &_tabs {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            flex-wrap: wrap;
+            background-color: white;
+            width: rem(224);
+        }
+        &_tabs-img {
+            width: rem(224);
+        }
+        &_tabs-item {
+            width: rem(32);
+            height: rem(32);
+        }
         &_icons {
             display: flex;
             justify-content: space-between;
@@ -101,6 +115,10 @@
 
         &_left {
             position: absolute;
+            top: rem(24);
+            left: rem(16);
+            display: flex;
+            gap: rem(4);
         }
 
         // .product__icons_sale
@@ -117,7 +135,7 @@
             top: rem(14);
             right: rem(16);
             justify-content: center;
-            font-family: "Cormorant", serif;
+            font-family: "Cormorant Infant", serif;
             font-weight: 700;
             font-size: rem(20);
             line-height: 100%;
@@ -202,5 +220,55 @@
         }
     }
 }
-.container {
+
+.product__img_tabs-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.product__img_tabs-item::after {
+    content: "";
+    position: absolute;
+    bottom: rem(10);
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(8);
+    height: rem(8);
+    border: rem(1) solid #417a82;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product__img_tabs-item.active::after {
+    opacity: 1;
+}
+
+[data-img-big] {
+    display: none;
+}
+
+.product__img_tabs-item.active {
+    opacity: 1;
+}
+.showbtns {
+    background-color: #417a82;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: rem(32);
+    height: rem(32);
+
+    img {
+        transform: rotate(0deg);
+        width: rem(11.5);
+        transform: 0.3s all ease;
+    }
+    &.active {
+        img {
+            transform: rotate(180deg);
+        }
+    }
 }

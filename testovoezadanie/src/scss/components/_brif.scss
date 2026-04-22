@@ -1,0 +1,206 @@
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: rem(16);
+    margin-bottom: rem(16);
+    cursor: pointer;
+}
+.checkbox-container input {
+    display: none;
+}
+.custom-checkbox {
+    width: rem(16);
+    height: rem(16);
+    border: rem(1) solid #417a82;
+    background: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.custom-checkbox svg {
+    width: rem(8);
+    height: rem(8);
+    visibility: hidden;
+    display: block;
+}
+
+.checkbox-container input:checked + .custom-checkbox svg {
+    visibility: visible;
+}
+
+.checkbox-container:hover .custom-checkbox {
+}
+
+.checkbox-container input:checked + .custom-checkbox {
+}
+
+.label-text {
+    display: inline-block;
+    color: #052e4c;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: rem(13);
+    line-height: 100%;
+    text-align: center;
+}
+
+.brief {
+    // .brief__content
+        position: relative;
+
+    &__content {
+        background-color: #e3f6f5;
+        padding: rem(56);
+        // .brief__content_title
+        form {
+            height: rem(533);
+            padding: rem(62) 0 rem(51);
+            border: 1px solid #417a82;
+        }
+        &_title {
+        position: absolute;
+      top: rem(50);              
+      left: 50%;           
+      transform: translateX(-50%); 
+      background-color: #e3f6f5;
+      padding: rem(0) rem(30);
+      font-family: "PT Sans", sans-serif;
+      font-weight: 400;
+      font-size: rem(13);
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;  
+
+
+        }
+    }
+
+    // .brief__form
+
+    &__form {
+        // .brief__form_title
+        
+
+        &_title {
+            font-family: "Cormorant", serif;
+            font-weight: 700;
+            font-size: rem(32);
+            line-height: 100%;
+            font-style: italic;
+            letter-spacing: 0%;
+            text-align: center;
+            color: #052e4c;
+            margin-bottom: rem(16);
+        }
+
+        // .brief__form_stage
+
+        &_stage {
+            display: flex;
+            align-items: center;
+            gap: rem(4);
+            justify-content: center;
+            margin-bottom: rem(48);
+        }
+
+        // .brief__form_list
+
+        &_list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        // .brief__form_checkobx-column
+
+        &_checkobx-column {
+        }
+
+        // .brief__form_next-btn
+
+        &_next-btn {
+            display: inline-block;
+            color: #052e4c;
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: rem(13);
+            line-height: 100%;
+            text-align: center;
+            padding: rem(11) rem(24);
+            background-color: #fff;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        // .brief__form_submit-btn
+
+        &_submit-btn {
+            display: inline-block;
+            color: #052e4c;
+            font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: rem(13);
+            line-height: 100%;
+            text-align: center;
+            padding: rem(11) rem(24);
+            background-color: #fff;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+    }
+
+    // .brief__stage
+
+    &__stage {
+        // .brief__stage_item
+
+        &_item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-family: "Cormorant Infant", serif;
+            font-weight: 700;
+            font-size: rem(12);
+            line-height: 100%;
+            font-style: italic;
+            letter-spacing: 0%;
+            width: rem(19);
+            height: rem(19);
+            color: #417a82;
+            border: rem(1) solid #417a82;
+            &.active {
+                background-color: #417a82;
+                color: #fff;
+            }
+        }
+    }
+    &__form {
+        // .breif__form_checkbox-row
+
+        &_checkbox-row {
+            margin-bottom: rem(42);
+
+            display: flex;
+            justify-content: center;
+            gap: rem(102);
+        }
+    }
+}
+.container {
+}
+
+.brief-line {
+    display: block;
+    width: rem(18);
+    height: rem(1);
+    background-color: #417a82;
+}

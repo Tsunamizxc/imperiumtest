@@ -9,9 +9,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/test */ "./src/js/components/test.js");
+/* harmony import */ var _components_productTabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/productTabs */ "./src/js/components/productTabs.js");
+/* harmony import */ var _components_productTabs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_productTabs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_brief__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/brief */ "./src/js/components/brief.js");
+/* harmony import */ var _components_brief__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_brief__WEBPACK_IMPORTED_MODULE_1__);
 
-(0,_components_test__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
 
 /***/ },
 
@@ -152,20 +155,238 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./src/js/components/test.js"
-/*!***********************************!*\
-  !*** ./src/js/components/test.js ***!
-  \***********************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/js/components/brief.js"
+/*!************************************!*\
+  !*** ./src/js/components/brief.js ***!
+  \************************************/
+() {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ testFnc)
-/* harmony export */ });
-function testFnc() {
-  console.log("Start components");
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const steps = document.querySelectorAll('.brief__form_list');
+  const stageItems = document.querySelectorAll('.brief__stage_item');
+  let currentStep = 0;
+  const totalSteps = steps.length;
+  function showStep(stepIndex) {
+    steps.forEach((step, index) => {
+      step.style.display = index === stepIndex ? 'flex' : 'none';
+    });
+    stageItems.forEach((item, index) => {
+      if (index === stepIndex) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+    currentStep = stepIndex;
+  }
+  function isAnyCheckboxCheckedInStep(stepIndex) {
+    const currentStepElement = steps[stepIndex];
+    if (!currentStepElement) return false;
+    const checkboxes = currentStepElement.querySelectorAll('input[type="checkbox"]');
+    let isChecked = false;
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) isChecked = true;
+    });
+    return isChecked;
+  }
+  function updateButtonState(stepIndex) {
+    const isChecked = isAnyCheckboxCheckedInStep(stepIndex);
+    const currentStepElement = steps[stepIndex];
+    let button = null;
+    if (stepIndex === totalSteps - 1) {
+      button = currentStepElement.querySelector('.brief__form_submit-btn');
+    } else {
+      button = currentStepElement.querySelector('.brief__form_next-btn');
+    }
+    if (button) {
+      if (isChecked) {
+        button.removeAttribute('disabled');
+        button.style.opacity = '1';
+        button.style.cursor = 'pointer';
+        button.style.pointerEvents = 'auto';
+      } else {
+        button.setAttribute('disabled', 'disabled');
+        button.style.opacity = '0.5';
+        button.style.cursor = 'not-allowed';
+        button.style.pointerEvents = 'none';
+      }
+    }
+  }
+  function goToNextStep(currentStepIndex) {
+    if (currentStepIndex < totalSteps - 1) {
+      if (isAnyCheckboxCheckedInStep(currentStepIndex)) {
+        showStep(currentStepIndex + 1);
+        updateButtonState(currentStep + 1);
+      }
+    }
+  }
+  showStep(0);
+  steps.forEach((step, stepIndex) => {
+    const nextBtn = step.querySelector('.brief__form_next-btn');
+    const submitBtn = step.querySelector('.brief__form_submit-btn');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (stepIndex === currentStep) {
+          goToNextStep(stepIndex);
+        }
+      });
+    }
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (isAnyCheckboxCheckedInStep(stepIndex)) {
+          document.querySelector('.brief__form').submit();
+        }
+      });
+    }
+  });
+  steps.forEach((step, stepIndex) => {
+    const checkboxes = step.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        updateButtonState(stepIndex);
+      });
+    });
+  });
+  stageItems.forEach((item, index) => {
+    item.addEventListener('click', function () {
+      let canNavigate = true;
+      if (index > 0) {
+        for (let i = 0; i < index; i++) {
+          if (!isAnyCheckboxCheckedInStep(i)) {
+            canNavigate = false;
+            break;
+          }
+        }
+      }
+      if (canNavigate && index !== currentStep) {
+        showStep(index);
+        updateButtonState(currentStep);
+      }
+    });
+    item.style.cursor = 'pointer';
+  });
+  updateButtonState(0);
+});
+
+/***/ },
+
+/***/ "./src/js/components/productTabs.js"
+/*!******************************************!*\
+  !*** ./src/js/components/productTabs.js ***!
+  \******************************************/
+() {
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Находим все товары
+  const productItems = document.querySelectorAll('.product__swiper_item');
+  productItems.forEach(product => {
+    // Ищем элементы внутри конкретного товара
+    const tabItems = product.querySelectorAll('.product__img_tabs-item');
+    const bigImages = product.querySelectorAll('[data-img-big]');
+    const showBtns = product.querySelectorAll('.showbtns');
+
+    // Функция для скрытия всех больших изображений в этом товаре
+    function hideAllBigImages() {
+      bigImages.forEach(img => {
+        img.style.display = 'none';
+      });
+    }
+
+    // Функция для удаления активного класса у всех вкладок в этом товаре
+    function removeActiveClass() {
+      tabItems.forEach(tab => {
+        tab.classList.remove('active');
+      });
+    }
+
+    // Функция для показа изображения и активации вкладки
+    function activateTab(tabValue, clickedTab) {
+      hideAllBigImages();
+      bigImages.forEach(img => {
+        if (img.getAttribute('data-img-big') === tabValue) {
+          img.style.display = 'block';
+        }
+      });
+      removeActiveClass();
+      clickedTab.classList.add('active');
+    }
+
+    // Функция для скрытия элементов с data-img-tab >= 7
+    function hideExtraTabs() {
+      tabItems.forEach(item => {
+        const tabNumber = item.getAttribute('data-img-tab');
+        if (tabNumber && parseInt(tabNumber) >= 7) {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Функция для переключения видимости (показать/скрыть)
+    function toggleTabs() {
+      const hiddenTabs = Array.from(tabItems).filter(item => {
+        const tabNumber = item.getAttribute('data-img-tab');
+        return tabNumber && parseInt(tabNumber) >= 7 && item.style.display === 'none';
+      });
+      if (hiddenTabs.length > 0) {
+        // Если есть скрытые элементы - показываем их
+        tabItems.forEach(item => {
+          const tabNumber = item.getAttribute('data-img-tab');
+          if (tabNumber && parseInt(tabNumber) >= 7) {
+            item.style.display = '';
+          }
+        });
+      } else {
+        // Если все элементы видимы - скрываем элементы с 7 и выше
+        tabItems.forEach(item => {
+          const tabNumber = item.getAttribute('data-img-tab');
+          if (tabNumber && parseInt(tabNumber) >= 7) {
+            item.style.display = 'none';
+          }
+        });
+      }
+    }
+
+    // Добавляем обработчик клика на каждую вкладку в этом товаре
+    tabItems.forEach(tab => {
+      tab.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const tabValue = this.getAttribute('data-img-tab');
+        if (tabValue) {
+          activateTab(tabValue, this);
+        }
+      });
+    });
+
+    // Обработчик для каждой кнопки показа скрытых вкладок в этом товаре
+    if (showBtns.length > 0) {
+      showBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          this.classList.toggle("active");
+          e.stopPropagation();
+          toggleTabs();
+        });
+      });
+    }
+
+    // Скрываем лишние вкладки при загрузке
+    hideExtraTabs();
+
+    // Активируем первую вкладку и первое изображение при загрузке
+    const firstTabWithValue = Array.from(tabItems).find(tab => tab.getAttribute('data-img-tab') === '1');
+    if (firstTabWithValue) {
+      const firstTabValue = firstTabWithValue.getAttribute('data-img-tab');
+      hideAllBigImages();
+      bigImages.forEach(img => {
+        if (img.getAttribute('data-img-big') === firstTabValue) {
+          img.style.display = 'block';
+        }
+      });
+      firstTabWithValue.classList.add('active');
+    }
+  });
+});
 
 /***/ },
 

@@ -1,2 +1,2 @@
-import testFnc from "./components/test";
-testFnc();
+import "./components/productTabs";
+import "./components/brief";

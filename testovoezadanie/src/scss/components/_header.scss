@@ -4,12 +4,12 @@
     &__fixed {
         top: rem(56);
         position: fixed;
-        z-index: 1000;
+        z-index: 5;
         margin: 0 auto;
         right: rem(103);
         display: flex;
         justify-content: end;
-        gap: rem(17);
+        gap: rem(15);
         // .header__fixed_btn
 
         &_btn {
@@ -47,9 +47,10 @@
 
     &__horizontal {
         position: absolute;
-        z-index: 2000;
+        z-index:3;
         height: 100vh;
         background-color: #f2f6f7;
+        margin-left: rem(9);
         // .header__horizontal_column
 
         &_column {
@@ -63,7 +64,7 @@
         }
         &_line {
             position: fixed;
-            z-index: 2000;
+            z-index: 3;
             width: rem(72);
             height: 100vh;
             background-color: #ffffff;
