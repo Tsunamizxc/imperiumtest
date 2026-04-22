@@ -208,7 +208,6 @@ html {
   z-index: 3;
   height: 100vh;
   background-color: #f2f6f7;
-  margin-left: 0.9rem;
 }
 .header__horizontal_column {
   display: -webkit-box;
